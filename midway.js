@@ -31,3 +31,4 @@ function Midway(e, $parent){
 	});
 }
 $(window).on('resize', Midway);
+window.Midway = Midway;
