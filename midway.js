@@ -1,6 +1,17 @@
-function Midway(){
-	var $centerHorizontal = $('.midway-horizontal'),
-		$centerVertical = $('.midway-vertical');
+function Midway(e, $parent){
+
+	var centerHorizontal = '.midway-horizontal',
+		centerVertical = '.midway-vertical',
+		$centerHorizontal,
+		$centerVertical;
+
+	if($parent){
+		$centerHorizontal = $parent.find(centerHorizontal);
+		$centerVertical = $parent.find(centerVertical);
+	} else {
+		$centerHorizontal = $(centerHorizontal);
+		$centerVertical = $(centerVertical);
+	}
 
 	$centerHorizontal.each(function(){
 		$(this).css('marginLeft', -$(this).outerWidth()/2);
@@ -16,8 +27,7 @@ function Midway(){
 	$centerVertical.css({
 		'display' : 'inline',
 		'position' : 'absolute',
-		'top' : '50%',
+		'top' : '50%'
 	});
 }
-$(window).on('load', Midway);
 $(window).on('resize', Midway);
